@@ -1,16 +1,39 @@
-import React, { useContext, useEffect } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useContext, useEffect, useState } from 'react'
 import { weatherContext } from '../../Context/WeatherApiContext'
 
 const Home = () => {
 
-  const {}=useContext(weatherContext)
+  const { userWeather } = useContext(weatherContext)
 
-  useEffect(()=>{
-  },[])
+  const [clima, setClima] = useState()
+
+
+
+  useEffect(() => {
+    if (userWeather) {
+      setClima(userWeather)
+    }
+
+
+  }, [])
+
+
+
+
 
 
   return (
-    <div>Hola! soy HOME!!!</div>
+    <>
+      <div>Hola! soy HOME!!!</div>
+      {userWeather &&
+        <>
+          <h1>{userWeather.name}</h1>
+          <h3>Temp: {Math.round(userWeather.main.temp)}°</h3>
+          <img src={userWeather.weather[0].icon} alt="" />
+        </>
+      }
+    </>
   )
 }
 

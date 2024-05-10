@@ -6,14 +6,11 @@ const Home = () => {
 
   const { userWeather } = useContext(weatherContext)
 
-  const [clima, setClima] = useState()
 
 
 
   useEffect(() => {
-    if (userWeather) {
-      setClima(userWeather)
-    }
+
 
 
   }, [])

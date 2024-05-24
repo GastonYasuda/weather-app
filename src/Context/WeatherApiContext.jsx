@@ -8,6 +8,7 @@ const WeatherApiContext = ({ children }) => {
 
 
     const [userWeather, setUserWeather] = useState()
+    const [bySearch, setBySearch] = useState()
 
     const API_key = '387f9ff0d731ddf4811deaddd4ae497a'
 
@@ -19,6 +20,19 @@ const WeatherApiContext = ({ children }) => {
 
     //fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_key}&units=metric`) //para poner un buscador de la ciudad
 
+
+    const byInputSearch = (city_name) => {
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_key}&units=metric`) //para poner un buscador de la ciudad
+            .then((response) => response.json())
+            .then((json) => {
+                //    console.log(json);
+                setBySearch(json);
+                localStorage.setItem('InputLocation', JSON.stringify(json.name));
+            })
+            .catch((err) => {
+                console.error('Error fetching weather data:', err);
+            });
+    }
 
     const geoLocalization = () => {
         navigator.geolocation.getCurrentPosition(
@@ -44,7 +58,7 @@ const WeatherApiContext = ({ children }) => {
 
 
     return (
-        <weatherContext.Provider value={{ userWeather }}>
+        <weatherContext.Provider value={{ userWeather, byInputSearch, bySearch }}>
             {children}
         </weatherContext.Provider>
     )

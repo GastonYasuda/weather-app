@@ -1,40 +1,46 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { weatherContext } from '../../Context/WeatherApiContext';
+import Select, { components } from 'react-select';
 
-const SearchOptions = () => {
+
+const SearchOptions = ({ Countries }) => {
+
+
+    const [inputOption, setInputOption] = useState([])
+
 
     const { bySearch } = useContext(weatherContext)
 
+    const Group = () => (
+        <div>
+            <components.Group />
+        </div>
+    );
+
 
     useEffect(() => {
-
-        if (bySearch !== undefined) {
-            if (bySearch.name) {
-
-                console.log(bySearch);
-                console.log(bySearch.name);
-
-
-
-            }
-
+        if (bySearch !== undefined && bySearch.name) {
+            console.log(bySearch);
+            console.log(bySearch.name);
+            setInputOption(prevResults => [...prevResults, bySearch.name]);
         }
 
-    }, [bySearch])
-
-
-    //si 
-    // <h1>{userWeather.name}</h1>
+    }, [bySearch]);
 
 
 
     //tiene que darme todos los que coinciden en un array
 
     return (
-        <div>
+        <Select
+            //      onChange={(choice) => setUserChoice(choice.label)}
 
-        </div>
+            // options={Countries} //countries tiene que traer todos las ciudades
+            components={{ Group }}
+        >
+
+        </Select>
     )
 }
 

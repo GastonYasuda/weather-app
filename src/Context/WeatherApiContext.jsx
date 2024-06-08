@@ -8,7 +8,7 @@ const WeatherApiContext = ({ children }) => {
 
 
     const [userWeather, setUserWeather] = useState()
-    const [bySearch, setBySearch] = useState()
+    const [bySearch, setBySearch] = useState({})
 
     const API_key = '387f9ff0d731ddf4811deaddd4ae497a'
 
@@ -25,7 +25,7 @@ const WeatherApiContext = ({ children }) => {
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_key}&units=metric`) //para poner un buscador de la ciudad
             .then((response) => response.json())
             .then((json) => {
-                //    console.log(json);
+                //  console.log(json);
                 setBySearch(json);
                 localStorage.setItem('InputLocation', JSON.stringify(json.name));
             })
@@ -57,8 +57,12 @@ const WeatherApiContext = ({ children }) => {
     };
 
 
+    function mayPrimera(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
     return (
-        <weatherContext.Provider value={{ userWeather, byInputSearch, bySearch }}>
+        <weatherContext.Provider value={{ mayPrimera, userWeather, byInputSearch, bySearch }}>
             {children}
         </weatherContext.Provider>
     )

@@ -2,6 +2,7 @@
 import React from 'react'
 import UserLocationWeather from '../../Component/UserLocationWeather/UserLocationWeather'
 import SearchLocation from '../../Component/SearchLocation/SearchLocation'
+import UserInputResults from '../../Component/UserInputResults/UserInputResults'
 
 const Home = () => {
 
@@ -11,6 +12,10 @@ const Home = () => {
     <>
 
       <SearchLocation />
+
+      <UserInputResults />
+
+
       <UserLocationWeather />
 
     </>

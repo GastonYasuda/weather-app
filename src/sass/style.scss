@@ -3,3 +3,28 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    width: 100%;
+}
+
+.d-f-col-a-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.d-f-row-a-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.d-f-r-j-between {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@import "../Component/WeatherResult/weatherResult.scss";

@@ -72,10 +72,6 @@ const SearchLocation = () => {
 
             {/* <SearchOptions Countries={Countries} />  */}
 
-
-            {inputResults && <h1>Busco: {inputResults}</h1>}
-
-
         </>
 
     )

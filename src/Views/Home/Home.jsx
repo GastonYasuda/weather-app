@@ -9,7 +9,7 @@ const Home = () => {
 
 
   return (
-    <>
+    <div className='d-f-col-a-center'>
 
       <SearchLocation />
 
@@ -18,7 +18,7 @@ const Home = () => {
 
       <UserLocationWeather />
 
-    </>
+    </div>
   )
 }
 

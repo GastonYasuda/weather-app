@@ -28,7 +28,6 @@ const WeatherResult = ({ weatherData }) => {
                         <Card.Body className='d-f-col-a-center'>
                             <section className='weatherData d-f-col-a-center'>
                                 <div className="mainData">
-                                    {/* <img src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`} alt="Weather icon" /> */}
                                     <h4>{weatherData.weather[0].main}</h4>
                                 </div>
                                 <Card.Title>
@@ -44,12 +43,12 @@ const WeatherResult = ({ weatherData }) => {
                                 </div>
                             </section>
 
-                            {backgroundImage(weatherData.weather[0].main)}
                         </Card.Body>
 
 
                     </Card>
 
+                    {backgroundImage(weatherData.weather[0].main)}
                 </>
             }
         </>

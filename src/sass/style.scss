@@ -8,6 +8,11 @@ body {
     width: 100%;
 }
 
+.main {
+    width: 90%;
+    margin: auto;
+}
+
 .d-f-col-a-center {
     display: flex;
     flex-direction: column;
@@ -21,10 +26,14 @@ body {
 }
 
 .d-f-r-j-between {
-    width: 60%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
+@import "../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
+
 @import "../Component/WeatherResult/weatherResult.scss";
+@import "../Component/SearchLocation/searchLocation.scss";
+@import "../Component/Header/header.scss";

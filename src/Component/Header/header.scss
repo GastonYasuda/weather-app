@@ -1,0 +1,14 @@
+.header {
+    margin: 30px 0;
+    align-items: center;
+
+    .logo {
+        & img {
+            width: 70px;
+        }
+    }
+
+    .hamburger {
+        padding: 0px !important;
+    }
+}

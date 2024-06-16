@@ -4,6 +4,7 @@ import UserLocationWeather from '../../Component/UserLocationWeather/UserLocatio
 import SearchLocation from '../../Component/SearchLocation/SearchLocation'
 import UserInputResults from '../../Component/UserInputResults/UserInputResults'
 import Header from '../../Component/Header/Header'
+import Footer from '../../Component/Footer/Footer'
 
 const Home = () => {
 
@@ -12,15 +13,15 @@ const Home = () => {
   return (
     <div className='main d-f-col-a-center'>
 
-
       <Header />
 
       <SearchLocation />
 
       <UserInputResults />
 
-
       <UserLocationWeather />
+
+      <Footer />
 
     </div >
   )

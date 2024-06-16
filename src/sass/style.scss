@@ -9,8 +9,10 @@ body {
 }
 
 .main {
-    width: 90%;
+    width: 100%;
+    height: 100vh;
     margin: auto;
+    justify-content: space-between;
 }
 
 .d-f-col-a-center {
@@ -37,3 +39,5 @@ body {
 @import "../Component/WeatherResult/weatherResult.scss";
 @import "../Component/SearchLocation/searchLocation.scss";
 @import "../Component/Header/header.scss";
+@import "../Component/UserLocationWeather/userLocationWeather.scss";
+@import "../Component/Footer/footer.scss";

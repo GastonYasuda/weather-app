@@ -14,7 +14,7 @@ const Header = () => {
         <div className='header d-f-r-j-between'>
             <div className="logo d-f-row-a-center">
                 <img src="/logoTanuki_black.png" alt="logo tanuki" />
-                <h1>WeatherRyo</h1>
+                <h4>WeatherRyo</h4>
             </div>
 
             <button class={`hamburger hamburger--collapse ${isActive ? 'is-active' : ''}`} type="button" onClick={toggleMenu}

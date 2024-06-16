@@ -1,14 +1,5 @@
-.weatherMainImg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    opacity: 0.5;
-    object-fit: cover;
-    z-index: -1;
-}
-
 .card {
-    margin-top: 70px;
+    ;
     border: none !important;
     // opacity: 0.5;
     --bs-card-bg: transparent !important;
@@ -20,8 +11,6 @@
         padding: 0;
 
         .weatherData {
-
-            z-index: 80;
 
             .mainData {
                 margin-top: 20px;

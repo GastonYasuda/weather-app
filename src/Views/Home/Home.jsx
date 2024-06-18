@@ -11,15 +11,18 @@ const Home = () => {
 
 
   return (
-    <div className='main d-f-col-a-center'>
+    <div className='main'>
 
-      <Header />
+      <div className="componentBody d-f-col-a-center">
+        <Header />
 
-      <SearchLocation />
+        <SearchLocation />
 
-      <UserInputResults />
+        <UserInputResults />
 
-      <UserLocationWeather />
+        <UserLocationWeather />
+      </div>
+
 
       <Footer />
 

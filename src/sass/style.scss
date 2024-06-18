@@ -12,8 +12,16 @@ body {
     max-width: 600px;
     height: 100vh;
     margin: auto;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
+
+.componentBody {
+    position: relative;
+    height: 100%;
+}
+
 
 .d-f-col-a-center {
     display: flex;

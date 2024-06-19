@@ -2,6 +2,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { weatherContext } from '../../Context/WeatherApiContext'
 import WeatherResult from '../WeatherResult/WeatherResult'
+import Spinner from 'react-bootstrap/Spinner';
 
 const UserLocationWeather = () => {
 
@@ -34,14 +35,21 @@ const UserLocationWeather = () => {
 
     return (
         <>
-            {userWeather && weatherData.main &&
+            {userWeather && weatherData.main ?
                 <>
                     <WeatherResult weatherData={weatherData} />
 
                     <div className='weatherBackgroundImg'>
                         {backgroundImage(weatherData.weather[0].main)}
-
                     </div>
+                </>
+                :
+                <>
+                    <Spinner animation="border" variant="primary" />
+
+
+                    <h1>loading...</h1>
+                    <p>We cannot locate your location, please check that your location is active.</p>
                 </>
             }
         </>

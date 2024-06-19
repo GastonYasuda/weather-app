@@ -1,12 +1,10 @@
 .card {
     border: none !important;
-    // opacity: 0.5;
     --bs-card-bg: transparent !important;
     border-radius: 35px !important;
+    margin-top: 15%;
 
     .card-body {
-        position: relative;
-        overflow: hidden;
         padding: 0;
 
         .weatherData {

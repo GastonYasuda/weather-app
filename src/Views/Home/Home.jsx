@@ -11,16 +11,22 @@ const Home = () => {
 
 
   return (
-    <div className='main'>
+    <div className='main d-f-col'>
 
       <div className="componentBody d-f-col-a-center">
         <Header />
 
         <SearchLocation />
 
+
         <UserInputResults />
 
         <UserLocationWeather />
+        <div className="resultBody">
+
+          {/* si es userInput es true me muestre userInputResults, si es false me muestre UserLocationWeather */}
+        </div>
+
       </div>
 
 

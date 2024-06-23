@@ -19,10 +19,10 @@ const Home = () => {
         <SearchLocation />
 
 
-        <UserInputResults />
-
-        <UserLocationWeather />
         <div className="resultBody">
+          <UserInputResults />
+
+          <UserLocationWeather />
 
           {/* si es userInput es true me muestre userInputResults, si es false me muestre UserLocationWeather */}
         </div>

@@ -44,13 +44,11 @@ const UserLocationWeather = () => {
                     </div>
                 </>
                 :
-                <>
+                <div className='locationNotFound d-f-col-a_center-j_center '>
                     <Spinner animation="border" variant="primary" />
-
-
                     <h1>loading...</h1>
-                    <p>We cannot locate your location, please check that your location is active.</p>
-                </>
+                    <p>We cannot found your location, please check that your location is active.</p>
+                </div>
             }
         </>
     )

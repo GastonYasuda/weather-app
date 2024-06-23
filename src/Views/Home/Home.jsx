@@ -19,7 +19,7 @@ const Home = () => {
         <SearchLocation />
 
 
-        <div className="resultBody">
+        <div className="resultBody d-f-col-a_center-j_center">
           <UserInputResults />
 
           <UserLocationWeather />

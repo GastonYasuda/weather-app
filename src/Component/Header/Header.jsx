@@ -11,7 +11,7 @@ const Header = () => {
 
 
     return (
-        <div className='header d-f-r-j-between'>
+        <div className='header d-f-row-j-between'>
             <div className="logo d-f-row-a-center">
                 <img src="/logoTanuki_black.png" alt="logo tanuki" />
                 <h4>WeatherRyo</h4>

@@ -16,7 +16,6 @@ body {
 }
 
 .componentBody {
-    position: relative;
     height: 100%;
 }
 
@@ -38,11 +37,19 @@ body {
     align-items: center;
 }
 
-.d-f-r-j-between {
+.d-f-row-j-between {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+
+.d-f-col-a_center-j_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 @import "../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";

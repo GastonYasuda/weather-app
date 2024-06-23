@@ -24,7 +24,7 @@ const WeatherResult = ({ weatherData }) => {
                                 <Card.Title>
                                     <span>{Math.round(weatherData.main.temp)}°</span>
                                 </Card.Title>
-                                <div className="d-f-r-j-between">
+                                <div className="d-f-row-j-between">
                                     <span>Max: {Math.round(weatherData.main.temp_max)}°</span>
                                     <span>Min: {Math.round(weatherData.main.temp_min)}°</span>
                                 </div>

@@ -8,12 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
-
-
-
-
-const SearchLocation = () => {
-
+const SearchLocation = ({ setSearch }) => {
 
     const { byInputSearch } = useContext(weatherContext)
 
@@ -25,8 +20,6 @@ const SearchLocation = () => {
             byInputSearch(inputResults)
         }
     }, [inputResults])
-
-
 
     // const Countries = [
     //     { label: "Albania", value: 355 },
@@ -40,19 +33,19 @@ const SearchLocation = () => {
 
     const handleClick = () => {
         setInputResults(inputName)
+        setSearch(true)
     }
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
             e.preventDefault(); // Evita el comportamiento por defecto del Enter en formularios
             handleClick();
+            console.log("click");
         }
     };
 
 
     return (
-
-
         <>
             <InputGroup className="mb-3">
                 <Form.Control
@@ -60,12 +53,12 @@ const SearchLocation = () => {
                     aria-describedby="basic-addon2"
                     onChange={e => setInputName(e.target.value.trimEnd())}
                     onKeyDown={handleKeyDown}
-
                 />
                 <Button variant="outline-secondary" id="button-addon2" onClick={handleClick} type='submit'>
                     Search
                 </Button>
             </InputGroup>
+
 
 
 

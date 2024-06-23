@@ -12,6 +12,17 @@
     .card-body {
         padding: 0;
 
+        .favOrNotFav {
+            background: none;
+            border: none;
+            color: inherit;
+            font: inherit;
+            cursor: pointer;
+            padding: 0;
+            outline: inherit;
+            width: 40px;
+        }
+
         .weatherData {
 
             .mainData {

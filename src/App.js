@@ -5,11 +5,15 @@ import "../src/sass/style.scss"
 import WeatherApiContext from './Context/WeatherApiContext';
 
 function App() {
+  // {/* <UserInputResults /> */ }
+
+
   return (
     <WeatherApiContext>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
+
           <Route path='*' element={<h1>Página no encontrada!!!</h1>} />
         </Routes>
       </BrowserRouter>
@@ -18,3 +22,4 @@ function App() {
 }
 
 export default App;
+

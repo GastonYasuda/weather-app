@@ -58,7 +58,7 @@ const SearchLocation = () => {
                 <Form.Control
                     placeholder="Input city"
                     aria-describedby="basic-addon2"
-                    onChange={e => setInputName(e.target.value)}
+                    onChange={e => setInputName(e.target.value.trimEnd())}
                     onKeyDown={handleKeyDown}
 
                 />

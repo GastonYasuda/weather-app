@@ -6,24 +6,11 @@ import Spinner from 'react-bootstrap/Spinner';
 
 const UserLocationWeather = () => {
 
-    const { userWeather } = useContext(weatherContext)
+    const { userWeather, backgroundImage } = useContext(weatherContext)
 
     const [weatherData, setWeatherData] = useState([])
 
-    const backgroundImage = (weatherMain) => {
-        switch (weatherMain) {
-            case 'Rain':
-                return <img className='weatherImg' src="/rain.jpg" alt="rain background" />;
-            case 'Snow':
-                return <img className='weatherImg' src="/snow.jpg" alt="snow background" />
-            case 'Clear':
-                return <img className='weatherImg' src="/clear.jpg" alt="clear background" />
-            case 'Clouds':
-                return <img className='weatherImg' src="/clouds.jpg" alt="clouds background" />
-            default:
-                return <p>Unknown status</p>;
-        }
-    }
+
 
     useEffect(() => {
         if (userWeather) {

@@ -5,7 +5,7 @@ import WeatherResult from '../WeatherResult/WeatherResult'
 const UserInputResults = () => {
 
 
-    const { bySearch } = useContext(weatherContext)
+    const { bySearch, backgroundImage } = useContext(weatherContext)
 
 
     useEffect(() => {
@@ -20,8 +20,13 @@ const UserInputResults = () => {
 
     return (
         <>
-            {bySearch &&
-                <WeatherResult weatherData={bySearch} />
+            {bySearch && bySearch.main &&
+                <>
+                    <WeatherResult weatherData={bySearch} />
+                    <div className='weatherBackgroundImg'>
+                        {backgroundImage(bySearch.weather[0].main)}
+                    </div>
+                </>
             }
         </>
     )

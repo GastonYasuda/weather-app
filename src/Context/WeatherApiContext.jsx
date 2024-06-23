@@ -27,7 +27,6 @@ const WeatherApiContext = ({ children }) => {
             .then((json) => {
                 //  console.log(json);
                 setBySearch(json);
-                localStorage.setItem('InputLocation', JSON.stringify(json.name));
             })
             .catch((err) => {
                 console.error('Error fetching weather data:', err);
@@ -57,12 +56,34 @@ const WeatherApiContext = ({ children }) => {
     };
 
 
+
+    //---------------------------------------- BACKGROUND IMAGE
+
+    const backgroundImage = (weatherMain) => {
+        switch (weatherMain) {
+            case 'Rain':
+                return <img className='weatherImg' src="/rain.jpg" alt="rain background" />;
+            case 'Snow':
+                return <img className='weatherImg' src="/snow.jpg" alt="snow background" />
+            case 'Clear':
+                return <img className='weatherImg' src="/clear.jpg" alt="clear background" />
+            case 'Clouds':
+                return <img className='weatherImg' src="/clouds.jpg" alt="clouds background" />
+            default:
+                return <p>Unknown status</p>;
+        }
+    }
+
+
+    //---------------------------------------- FIRST CHAR TO UPPER
+
+
     function mayPrimera(str) {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
     return (
-        <weatherContext.Provider value={{ mayPrimera, userWeather, byInputSearch, bySearch }}>
+        <weatherContext.Provider value={{ mayPrimera, userWeather, byInputSearch, bySearch, backgroundImage }}>
             {children}
         </weatherContext.Provider>
     )

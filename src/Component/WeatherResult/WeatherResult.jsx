@@ -1,26 +1,57 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card } from 'react-bootstrap'
 
 const WeatherResult = ({ weatherData }) => {
 
-    // const [isActive, setIsActive] = useState(false);
-
-    // const toggleMenu = () => {
-    //     setIsActive(!isActive);
-    // };
-
-
     const [isFav, setIsFav] = useState(false)
+    const [favCities, setFavCities] = useState([]);
+    // const [myLocation, setMyLocation] = useState('')
 
-
-    const toggleFav = () => {
-        if (isFav) {
-            setIsFav(false)
-        } else {
-            setIsFav(true)
+    // Cargar favCities desde localStorage al montar el componente
+    useEffect(() => {
+        const storedFavs = JSON.parse(localStorage.getItem('FavCity'));
+        if (storedFavs) {
+            setFavCities(storedFavs);
         }
-    }
+
+        console.log("myLocation:", weatherData.name);
+
+    }, [isFav]);
+
+    // Actualizar localStorage cada vez que favCities cambie
+    useEffect(() => {
+        localStorage.setItem('FavCity', JSON.stringify(favCities));
+
+        if (favCities && favCities.includes(weatherData.name)) {
+            setIsFav(true)
+        } else {
+            setIsFav(false)
+        }
+    }, [favCities, weatherData]);
+
+    const toggleFav = (myCity) => {
+        // setMyLocation(myCity)
+        if (favCities.includes(myCity)) {
+            setIsFav(true)
+            removeFavCity(myCity);
+            console.log("esta");
+
+        } else {
+            setIsFav(false)
+            addFavCity(myCity);
+            console.log("NO esta");
+        }
+    };
+
+    const addFavCity = (myCity) => {
+        setFavCities((prevFavCities) => [...prevFavCities, myCity]);
+    };
+
+    const removeFavCity = (myCity) => {
+        setFavCities((prevFavCities) => prevFavCities.filter(city => city !== myCity));
+    };
+
 
     return (
         <>
@@ -29,8 +60,19 @@ const WeatherResult = ({ weatherData }) => {
                     <Card style={{ width: '18rem' }}>
                         <Card.Body className='d-f-col-a-center'>
 
+                            {/* <div>
+                                <div>
+                                    <h3>Favoritos:</h3>
+                                    <ul>
+                                        {favoritos.map((city, index) => (
+                                            <li key={index}>{city}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div> */}
 
-                            <button type='button' onClick={toggleFav} className="favOrNotFav">
+
+                            <button type='button' onClick={() => { toggleFav(weatherData.name) }} className="favOrNotFav">
                                 {
                                     isFav ?
                                         <img src="/fav.svg" alt="fav buttom" />

@@ -40,9 +40,8 @@ const WeatherApiContext = ({ children }) => {
                 fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_key}&units=metric`)
                     .then((response) => response.json())
                     .then((json) => {
-                        //console.log(json);
                         setUserWeather(json);
-                        localStorage.setItem('Location', JSON.stringify(json.name));
+                        // localStorage.setItem('Location', JSON.stringify(json.name));
                     })
                     .catch((err) => {
                         console.error('Error fetching weather data:', err);

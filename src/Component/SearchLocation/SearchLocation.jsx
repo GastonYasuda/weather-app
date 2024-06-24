@@ -32,7 +32,7 @@ const SearchLocation = ({ setSearch }) => {
     // ];
 
     const handleClick = () => {
-        setInputResults(inputName)
+        setInputResults(inputName.trim())
         setSearch(true)
         setInputName('');
     }
@@ -53,7 +53,7 @@ const SearchLocation = ({ setSearch }) => {
                     placeholder="Input city"
                     aria-describedby="basic-addon2"
                     value={inputName} // Añade el valor del input controlado
-                    onChange={e => setInputName(e.target.value.trimEnd())}
+                    onChange={e => setInputName(e.target.value)}
                     onKeyDown={handleKeyDown}
                 />
                 <Button variant="outline-secondary" id="button-addon2" onClick={handleClick} type='submit'>

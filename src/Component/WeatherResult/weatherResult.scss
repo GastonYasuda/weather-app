@@ -11,8 +11,12 @@
 
     .card-body {
         padding: 0;
+        position: relative;
 
         .favOrNotFav {
+            position: absolute;
+            right: 0;
+            top: 0;
             background: none;
             border: none;
             color: inherit;

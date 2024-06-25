@@ -60,18 +60,6 @@ const WeatherResult = ({ weatherData }) => {
                     <Card style={{ width: '18rem' }}>
                         <Card.Body className='d-f-col-a-center'>
 
-                            {/* <div>
-                                <div>
-                                    <h3>Favoritos:</h3>
-                                    <ul>
-                                        {favoritos.map((city, index) => (
-                                            <li key={index}>{city}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div> */}
-
-
                             <button type='button' onClick={() => { toggleFav(weatherData.name) }} className="favOrNotFav">
                                 {
                                     isFav ?

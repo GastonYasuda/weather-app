@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { Button } from 'react-bootstrap';
 
-const Header = ({ setSearch }) => {
+const Header = ({ setSearch, showFav, setShowFav }) => {
 
 
     const [isActive, setIsActive] = useState(false);
@@ -8,6 +9,15 @@ const Header = ({ setSearch }) => {
     const toggleMenu = () => {
         setIsActive(!isActive);
     };
+
+    const showFavOrNot = () => {
+        if (showFav) {
+            setShowFav(false)
+        } else {
+            setShowFav(true)
+
+        }
+    }
 
 
     return (
@@ -18,8 +28,12 @@ const Header = ({ setSearch }) => {
                     <img src="/logoTanuki_black.png" alt="logo tanuki" />
                     <h4>WeatherRyo</h4>
                 </div>
-
             </button>
+
+            <Button type='button' onClick={showFavOrNot}>
+                show fav
+            </Button>
+
 
             <button className={`hamburger hamburger--collapse ${isActive ? 'is-active' : ''}`} type="button" onClick={toggleMenu}
             >

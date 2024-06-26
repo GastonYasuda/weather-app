@@ -1,28 +1,31 @@
 import React, { useEffect, useState } from 'react'
+import ShowFavEachCity from '../ShowFavEachCity/ShowFavEachCity';
 
 const ShowFav = () => {
 
-    const [favArray, setFavArray] = useState([])
+    const [getFavArray, setGetFavArray] = useState([])
+
 
     //crear tarjetas para que muestre los favoritos
-    //de cada ciudad que esta en favArray buscarlo en el api y que me traiga todos y los guarde en un state con toda la info
-    //ej: favArray = [{aca toda la info que me trae siempre},{aca toda la info que me trae siempre},{aca toda la info que me trae siempre},etc]
+    //de cada ciudad que esta en getFavArray buscarlo en el api y que me traiga todos y los guarde en un state con toda la info
+    //ej: getFavArray = [{aca toda la info que me trae siempre},{aca toda la info que me trae siempre},{aca toda la info que me trae siempre},etc]
 
     useEffect(() => {
-        setFavArray(JSON.parse(localStorage.getItem('FavCity')))
+
+        setGetFavArray(JSON.parse(localStorage.getItem('FavCity')))
+
+
     }, []);
+
+
 
 
 
     return (
         <div>
-            <div>
-                <ul>
-                    {favArray.map((city, index) => (
-                        <li key={index}>{city}</li>
-                    ))}
-                </ul>
-            </div>        </div>
+            showFav
+            <ShowFavEachCity getFavArray={getFavArray} />
+        </div>
     )
 }
 

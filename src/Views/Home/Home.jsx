@@ -28,7 +28,9 @@ const Home = () => {
 
         </div>
 
-        {showFav && <ShowFav />}
+
+        <ShowFav />
+        {/* {showFav && <ShowFav />} */}
 
 
         <Footer />

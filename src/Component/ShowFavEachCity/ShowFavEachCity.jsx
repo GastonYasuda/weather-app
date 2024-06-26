@@ -11,10 +11,10 @@ const ShowFavEachCity = ({ getFavArray }) => {
 
     useEffect(() => {
 
-        console.log(getFavArray);
+        // console.log(getFavArray);
 
         for (const iterator of getFavArray) {
-            byInputSearch(iterator)
+            //   byInputSearch(iterator)
 
             // setFavArray((prevFavArray) => [...prevFavArray, bySearch])
         }

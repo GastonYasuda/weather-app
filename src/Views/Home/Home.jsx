@@ -5,7 +5,6 @@ import SearchLocation from '../../Component/SearchLocation/SearchLocation'
 import Header from '../../Component/Header/Header'
 import Footer from '../../Component/Footer/Footer'
 import UserInputResults from '../../Component/UserInputResults/UserInputResults'
-import ShowFav from '../../Component/ShowFav/ShowFav'
 
 const Home = () => {
 
@@ -29,7 +28,6 @@ const Home = () => {
         </div>
 
 
-        <ShowFav />
         {/* {showFav && <ShowFav />} */}
 
 

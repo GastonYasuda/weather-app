@@ -41,7 +41,7 @@ const SearchLocation = ({ setSearch }) => {
         if (e.key === 'Enter') {
             e.preventDefault(); // Evita el comportamiento por defecto del Enter en formularios
             handleClick();
-            console.log("click");
+            // console.log("click");
         }
     };
 

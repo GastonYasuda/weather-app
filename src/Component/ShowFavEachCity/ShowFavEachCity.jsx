@@ -11,13 +11,9 @@ const ShowFavEachCity = ({ getFavArray }) => {
 
     useEffect(() => {
 
-        // console.log(getFavArray);
+        console.log(getFavArray);
 
-        for (const iterator of getFavArray) {
-            //   byInputSearch(iterator)
 
-            // setFavArray((prevFavArray) => [...prevFavArray, bySearch])
-        }
 
     }, [getFavArray])
 
@@ -27,11 +23,11 @@ const ShowFavEachCity = ({ getFavArray }) => {
     return (
         <div>
             ShowFavEachCity
-            {/* <ul>
-                {favArray.map((city, index) => (
-                    <li key={index}>{city.name}</li>
+            <ul>
+                {getFavArray.map((city, index) => (
+                    <li key={index}>{city}</li>
                 ))}
-            </ul> */}
+            </ul>
 
 
 

@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { Card } from 'react-bootstrap'
+import ShowFavEachCity from '../ShowFavEachCity/ShowFavEachCity';
 
 const WeatherResult = ({ weatherData }) => {
 
@@ -17,18 +18,25 @@ const WeatherResult = ({ weatherData }) => {
 
         console.log("myLocation:", weatherData.name);
 
-    }, [isFav]);
+    }, [isFav, weatherData]);
+
+
 
     // Actualizar localStorage cada vez que favCities cambie
     useEffect(() => {
-        localStorage.setItem('FavCity', JSON.stringify(favCities));
 
+        localStorage.setItem('FavCity', JSON.stringify(favCities));
         if (favCities && favCities.includes(weatherData.name)) {
             setIsFav(true)
+
         } else {
             setIsFav(false)
+
         }
-    }, [favCities, weatherData]);
+    }, [favCities]);
+
+
+
 
     const toggleFav = (myCity) => {
         // setMyLocation(myCity)
@@ -95,6 +103,8 @@ const WeatherResult = ({ weatherData }) => {
 
                 </>
             }
+
+            <ShowFavEachCity getFavArray={favCities} />
         </>
     )
 }

@@ -15,7 +15,7 @@ const UserLocationWeather = () => {
     useEffect(() => {
         if (userWeather) {
             setWeatherData(userWeather)
-            console.log(userWeather);
+            //  console.log(userWeather);
         }
     }, [userWeather])
 

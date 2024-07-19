@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from 'react'
 import { weatherContext } from '../../Context/WeatherApiContext'
+import FavCards from '../FavCards/FavCards'
 
 const ShowFavEachCity = ({ getFavArray }) => {
 
@@ -10,12 +11,26 @@ const ShowFavEachCity = ({ getFavArray }) => {
 
 
     useEffect(() => {
+        if (favArray.length !== 0) {
+            console.log(getFavArray);
 
-        console.log(getFavArray);
+        }
 
 
+
+        //getFavArray las ciudades de este array buscarlos y que me los guarde en un nuevo array pero con toda la info [{},{},{}]
+
+        for (const city of getFavArray) {
+            // console.log(city);
+            byInputSearch(city)
+
+
+            setFavArray((prevFavCities) => [...prevFavCities, bySearch]);
+
+        }
 
     }, [getFavArray])
+
 
 
 
@@ -31,46 +46,9 @@ const ShowFavEachCity = ({ getFavArray }) => {
 
 
 
-            {/* {weatherData && weatherData.weather && weatherData.weather[0] && weatherData.main && weatherData.sys &&
-                <>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Body className='d-f-col-a-center'>
-
-                            <button type='button' onClick={() => { toggleFav(weatherData.name) }} className="favOrNotFav">
-                                {
-                                    isFav ?
-                                        <img src="/fav.svg" alt="fav buttom" />
-                                        :
-                                        <img src="/not_fav.svg" alt="not fav buttom" />
-
-                                }
-                            </button>
+            <FavCards favArray={favArray} />
 
 
-                            <section className='weatherData d-f-col-a-center'>
-                                <div className="mainData d-f-col-a-center ">
-                                    <h4>{weatherData.weather[0].main}</h4>
-                                    <div className="d-f-row-a-center">
-                                        <h1>{weatherData.name} - </h1>
-                                        <h1> <b>{weatherData.sys.country}</b></h1>
-                                    </div>
-                                </div>
-                                <Card.Title>
-                                    <span>{Math.round(weatherData.main.temp)}°</span>
-                                </Card.Title>
-                                <div className="d-f-row-j-between">
-                                    <span>Max: {Math.round(weatherData.main.temp_max)}°</span>
-                                    <span>Min: {Math.round(weatherData.main.temp_min)}°</span>
-                                </div>
-                            </section>
-
-                        </Card.Body>
-
-
-                    </Card>
-
-                </>
-            } */}
 
 
         </div>

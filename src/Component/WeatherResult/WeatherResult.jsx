@@ -7,18 +7,13 @@ const WeatherResult = ({ weatherData }) => {
 
     const [isFav, setIsFav] = useState(false)
     const [favCities, setFavCities] = useState([]);
-    // const [myLocation, setMyLocation] = useState('')
 
     // Cargar favCities desde localStorage al montar el componente
     useEffect(() => {
-        const storedFavs = JSON.parse(localStorage.getItem('FavCity'));
-        if (storedFavs) {
-            setFavCities(storedFavs);
-        }
 
-        console.log("myLocation:", weatherData.name);
+        setFavCities(JSON.parse(localStorage.getItem('FavCity')));
 
-    }, [isFav, weatherData]);
+    }, []);
 
 
 
@@ -26,6 +21,8 @@ const WeatherResult = ({ weatherData }) => {
     useEffect(() => {
 
         localStorage.setItem('FavCity', JSON.stringify(favCities));
+
+
         if (favCities && favCities.includes(weatherData.name)) {
             setIsFav(true)
 
@@ -33,13 +30,12 @@ const WeatherResult = ({ weatherData }) => {
             setIsFav(false)
 
         }
-    }, [favCities]);
+    }, [weatherData, favCities]);
 
 
 
 
     const toggleFav = (myCity) => {
-        // setMyLocation(myCity)
         if (favCities.includes(myCity)) {
             setIsFav(true)
             removeFavCity(myCity);

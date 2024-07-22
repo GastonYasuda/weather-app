@@ -11,25 +11,20 @@ const ShowFavEachCity = ({ getFavArray }) => {
 
 
     useEffect(() => {
-        if (favArray.length !== 0) {
-            console.log(getFavArray);
-
-        }
-
-
 
         //getFavArray las ciudades de este array buscarlos y que me los guarde en un nuevo array pero con toda la info [{},{},{}]
+        if (getFavArray) {
 
-        for (const city of getFavArray) {
-            // console.log(city);
-            byInputSearch(city)
+            for (const city of getFavArray) {
+                //   console.log(city);
+                byInputSearch(city)
 
+                setFavArray((prevFavCities) => [...prevFavCities, bySearch]);
 
-            setFavArray((prevFavCities) => [...prevFavCities, bySearch]);
-
+            }
         }
 
-    }, [getFavArray])
+    }, [])
 
 
 

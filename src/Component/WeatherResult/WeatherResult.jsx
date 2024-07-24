@@ -39,12 +39,10 @@ const WeatherResult = ({ weatherData }) => {
         if (favCities.includes(myCity)) {
             setIsFav(true)
             removeFavCity(myCity);
-            console.log("esta");
 
         } else {
             setIsFav(false)
             addFavCity(myCity);
-            console.log("NO esta");
         }
     };
 
@@ -70,7 +68,6 @@ const WeatherResult = ({ weatherData }) => {
                                         <img src="/fav.svg" alt="fav buttom" />
                                         :
                                         <img src="/not_fav.svg" alt="not fav buttom" />
-
                                 }
                             </button>
 
@@ -93,14 +90,10 @@ const WeatherResult = ({ weatherData }) => {
                             </section>
 
                         </Card.Body>
-
-
                     </Card>
-
                 </>
             }
-
-            <ShowFavEachCity getFavArray={favCities} />
+            <ShowFavEachCity favCities={favCities} />
         </>
     )
 }

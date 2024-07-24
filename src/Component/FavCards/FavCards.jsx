@@ -1,10 +1,19 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
+import { weatherContext } from '../../Context/WeatherApiContext';
 
-const FavCards = ({ favArray }) => {
+const FavCards = ({ favCities }) => {
+
+    const { favArray } = useContext(weatherContext)
 
     useEffect(() => {
-        console.log(favArray);
-    }, [favArray])
+        if (favArray.length === favCities.length && favArray.length !== 0) {
+            console.log(favArray);
+
+        }
+    }, [favArray, favCities])
+
+
+
     return (
         <div>
 

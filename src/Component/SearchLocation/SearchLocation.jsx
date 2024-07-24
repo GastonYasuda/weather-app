@@ -17,8 +17,8 @@ const SearchLocation = ({ setSearch }) => {
 
     useEffect(() => {
         if (inputResults) {
-            byInputSearch(inputResults)
-            console.log("busco:", inputResults);
+            byInputSearch(inputResults, true)
+            //console.log("busco:", inputResults);
         }
     }, [inputResults])
 

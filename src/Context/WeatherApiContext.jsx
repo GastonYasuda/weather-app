@@ -18,20 +18,39 @@ const WeatherApiContext = ({ children }) => {
 
     }, [])
 
-    //fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_key}&units=metric`) //para poner un buscador de la ciudad
 
 
-    const byInputSearch = (city_name) => {
+
+
+
+    const [favArray, setFavArray] = useState([])
+
+    const byInputSearch = (city_name, uniqueOrArray) => {
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_key}&units=metric`) //para poner un buscador de la ciudad
             .then((response) => response.json())
             .then((json) => {
-                // console.log(json);
-                setBySearch(json);
+
+                if (uniqueOrArray) {
+                    setBySearch(json);
+
+                } else {
+                    setFavArray((prevFavCities) => [...prevFavCities, json]);
+                }
             })
             .catch((err) => {
                 console.error('Error fetching weather data:', err);
             });
     }
+
+
+
+
+
+
+
+
+
+
 
     const geoLocalization = () => {
         navigator.geolocation.getCurrentPosition(
@@ -82,7 +101,7 @@ const WeatherApiContext = ({ children }) => {
     }
 
     return (
-        <weatherContext.Provider value={{ mayPrimera, userWeather, byInputSearch, bySearch, backgroundImage }}>
+        <weatherContext.Provider value={{ mayPrimera, userWeather, byInputSearch, bySearch, setFavArray, favArray, backgroundImage }}>
             {children}
         </weatherContext.Provider>
     )

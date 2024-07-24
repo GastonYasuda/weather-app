@@ -1,30 +1,24 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { weatherContext } from '../../Context/WeatherApiContext'
 import FavCards from '../FavCards/FavCards'
 
-const ShowFavEachCity = ({ getFavArray }) => {
+const ShowFavEachCity = ({ favCities }) => {
 
-    const { byInputSearch, bySearch } = useContext(weatherContext)
+    const { byInputSearch, setFavArray } = useContext(weatherContext)
 
-    const [favArray, setFavArray] = useState([])
 
 
     useEffect(() => {
 
-        //getFavArray las ciudades de este array buscarlos y que me los guarde en un nuevo array pero con toda la info [{},{},{}]
-        if (getFavArray) {
-
-            for (const city of getFavArray) {
-                //   console.log(city);
-                byInputSearch(city)
-
-                setFavArray((prevFavCities) => [...prevFavCities, bySearch]);
-
+        if (favCities) {
+            setFavArray([])
+            for (const city of favCities) {
+                byInputSearch(city, false)
             }
         }
 
-    }, [])
+    }, [favCities])
 
 
 
@@ -34,15 +28,13 @@ const ShowFavEachCity = ({ getFavArray }) => {
         <div>
             ShowFavEachCity
             <ul>
-                {getFavArray.map((city, index) => (
+                {favCities.map((city, index) => (
                     <li key={index}>{city}</li>
                 ))}
             </ul>
 
 
-
-            <FavCards favArray={favArray} />
-
+            <FavCards favCities={favCities} />
 
 
 

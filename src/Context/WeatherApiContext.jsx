@@ -87,6 +87,10 @@ const WeatherApiContext = ({ children }) => {
                 return <img className='weatherImg' src="/clear.jpg" alt="clear background" />
             case 'Clouds':
                 return <img className='weatherImg' src="/clouds.jpg" alt="clouds background" />
+            case 'Fog':
+                return <img className='weatherImg' src="/fogMist.jpg" alt="fog background" />
+            case 'Mist':
+                return <img className='weatherImg' src="/fogMist.jpg" alt="mist background" />
             default:
                 return <p>Unknown status</p>;
         }

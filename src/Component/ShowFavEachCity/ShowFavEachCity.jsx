@@ -26,18 +26,7 @@ const ShowFavEachCity = ({ favCities }) => {
 
     return (
         <div>
-            ShowFavEachCity
-            <ul>
-                {favCities.map((city, index) => (
-                    <li key={index}>{city}</li>
-                ))}
-            </ul>
-
-
             <FavCards favCities={favCities} />
-
-
-
         </div>
     )
 }

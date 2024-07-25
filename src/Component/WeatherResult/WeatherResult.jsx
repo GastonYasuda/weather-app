@@ -71,7 +71,6 @@ const WeatherResult = ({ weatherData }) => {
                                 }
                             </button>
 
-
                             <section className='weatherData d-f-col-a-center'>
                                 <div className="mainData d-f-col-a-center ">
                                     <h4>{weatherData.weather[0].main}</h4>

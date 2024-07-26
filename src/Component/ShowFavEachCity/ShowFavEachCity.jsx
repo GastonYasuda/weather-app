@@ -24,7 +24,7 @@ const ShowFavEachCity = ({ favCities }) => {
 
 
     return (
-        <div>
+        <div className='FavCards'>
             {showFav && <FavCards />}
         </div>
     )

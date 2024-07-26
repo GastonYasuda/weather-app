@@ -70,6 +70,11 @@ body {
     flex-direction: column;
 }
 
+
+.FavCards {
+    flex: 3;
+}
+
 @import "../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
 
 @import "../Component/WeatherResult/weatherResult.scss";

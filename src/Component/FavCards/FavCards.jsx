@@ -2,16 +2,20 @@ import React, { useContext, useEffect } from 'react'
 import Card from 'react-bootstrap/Card';
 import { weatherContext } from '../../Context/WeatherApiContext';
 
-const FavCards = ({ favCities }) => {
+const FavCards = () => {
 
-    const { favArray, backgroundImage } = useContext(weatherContext)
+    const { favArray, backgroundImage, favCities, toggleFav } = useContext(weatherContext)
 
     useEffect(() => {
+
+
         if (favArray.length === favCities.length && favArray.length !== 0) {
             console.log(favArray);
 
         }
     }, [favArray, favCities])
+
+    //favArray si dentro de esto esta en el localstorage 
 
 
 
@@ -31,6 +35,11 @@ const FavCards = ({ favCities }) => {
                         {/* <div>
                             {backgroundImage(city.weather[0].main)}
                         </div> */}
+
+                        <button type='button' onClick={() => { toggleFav(city.name) }} className="favOrNotFav">
+                            <img src="/fav.svg" alt="fav buttom" style={{ width: "35px" }} />
+                        </button>
+
 
                         <Card.Title>
                             <span>{Math.round(city.main.temp)}°</span>

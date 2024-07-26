@@ -10,11 +10,13 @@ const WeatherApiContext = ({ children }) => {
     const [userWeather, setUserWeather] = useState()
     const [bySearch, setBySearch] = useState({})
 
+
     const API_key = '387f9ff0d731ddf4811deaddd4ae497a'
 
 
     useEffect(() => {
         geoLocalization()
+        setFavCities(JSON.parse(localStorage.getItem('FavCity')));
 
     }, [])
 
@@ -104,8 +106,43 @@ const WeatherApiContext = ({ children }) => {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
+
+    //---------------------------------------- FAVS
+
+    const [favCities, setFavCities] = useState([]);
+    const [isFav, setIsFav] = useState(false)
+
+
+    const toggleFav = (myCity) => {
+        if (favCities.includes(myCity)) {
+            setIsFav(true)
+            removeFavCity(myCity);
+
+        } else {
+            setIsFav(false)
+            addFavCity(myCity);
+        }
+    };
+
+    const addFavCity = (myCity) => {
+        setFavCities((prevFavCities) => [...prevFavCities, myCity]);
+    };
+
+    const removeFavCity = (myCity) => {
+        setFavCities((prevFavCities) => prevFavCities.filter(city => city !== myCity));
+    };
+
+
+
+
+    //---------------------------------------- SHOW FAVS
+
+
+    const [showFav, setShowFav] = useState(false)
+
+
     return (
-        <weatherContext.Provider value={{ mayPrimera, userWeather, byInputSearch, bySearch, setFavArray, favArray, backgroundImage }}>
+        <weatherContext.Provider value={{ mayPrimera, userWeather, byInputSearch, bySearch, setFavArray, favArray, backgroundImage, toggleFav, setIsFav, isFav, favCities, showFav, setShowFav }}>
             {children}
         </weatherContext.Provider>
     )

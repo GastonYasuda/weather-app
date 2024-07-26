@@ -1,58 +1,28 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Card } from 'react-bootstrap'
 import ShowFavEachCity from '../ShowFavEachCity/ShowFavEachCity';
+import { weatherContext } from '../../Context/WeatherApiContext';
 
 const WeatherResult = ({ weatherData }) => {
 
-    const [isFav, setIsFav] = useState(false)
-    const [favCities, setFavCities] = useState([]);
-
-    // Cargar favCities desde localStorage al montar el componente
-    useEffect(() => {
-
-        setFavCities(JSON.parse(localStorage.getItem('FavCity')));
-
-    }, []);
-
+    const { toggleFav, setIsFav, isFav, favCities } = useContext(weatherContext)
 
 
     // Actualizar localStorage cada vez que favCities cambie
     useEffect(() => {
 
-        localStorage.setItem('FavCity', JSON.stringify(favCities));
-
-
         if (favCities && favCities.includes(weatherData.name)) {
             setIsFav(true)
+            localStorage.setItem('FavCity', JSON.stringify(favCities));
 
         } else {
             setIsFav(false)
+            localStorage.setItem('FavCity', JSON.stringify(favCities));
 
         }
     }, [weatherData, favCities]);
 
-
-
-
-    const toggleFav = (myCity) => {
-        if (favCities.includes(myCity)) {
-            setIsFav(true)
-            removeFavCity(myCity);
-
-        } else {
-            setIsFav(false)
-            addFavCity(myCity);
-        }
-    };
-
-    const addFavCity = (myCity) => {
-        setFavCities((prevFavCities) => [...prevFavCities, myCity]);
-    };
-
-    const removeFavCity = (myCity) => {
-        setFavCities((prevFavCities) => prevFavCities.filter(city => city !== myCity));
-    };
 
 
     return (

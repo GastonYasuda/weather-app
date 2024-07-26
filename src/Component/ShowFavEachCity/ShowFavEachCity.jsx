@@ -5,11 +5,10 @@ import FavCards from '../FavCards/FavCards'
 
 const ShowFavEachCity = ({ favCities }) => {
 
-    const { byInputSearch, setFavArray } = useContext(weatherContext)
-
-
+    const { byInputSearch, setFavArray, showFav } = useContext(weatherContext)
 
     useEffect(() => {
+
 
         if (favCities) {
             setFavArray([])
@@ -26,7 +25,7 @@ const ShowFavEachCity = ({ favCities }) => {
 
     return (
         <div>
-            <FavCards favCities={favCities} />
+            {showFav && <FavCards />}
         </div>
     )
 }

@@ -19,17 +19,11 @@ const Home = () => {
       <div className="componentBody d-f-col-a-center">
         <Header setSearch={setSearch} />
 
-        <div className="resultBody d-f-col-a_center-j_center">
 
-
-
-        </div>
 
         {search ? <UserInputResults /> : <UserLocationWeather />}
 
 
-
-        {/* {showFav && <ShowFav />} */}
 
 
         <Footer />

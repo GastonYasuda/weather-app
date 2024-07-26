@@ -44,12 +44,12 @@ const Header = ({ setSearch }) => {
                 </Button>
 
 
-                <button className={`hamburger hamburger--collapse ${isActive ? 'is-active' : ''}`} type="button" onClick={toggleMenu}
+                {/* <button className={`hamburger hamburger--collapse ${isActive ? 'is-active' : ''}`} type="button" onClick={toggleMenu}
                 >
                     <span className="hamburger-box">
                         <span className="hamburger-inner"></span>
                     </span>
-                </button>
+                </button> */}
 
             </div>
             <SearchLocation setSearch={setSearch} />

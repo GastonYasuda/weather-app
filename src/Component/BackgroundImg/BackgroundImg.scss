@@ -1,14 +1,15 @@
-.locationNotFound {
-    width: 85%;
-    margin: 4rem auto;
+.cardResult {
+    flex: 3;
+    margin-top: 25px;
 }
 
 .weatherBackgroundImg {
-    position: fixed;
-    top: 0;
-    height: 100vh;
+    height: 100%;
+    position: absolute;
+    // position: fixed;
     object-fit: cover;
-    z-index: -1;
+    top: 0;
+    overflow: hidden;
 
     & .weatherImg {
         width: 100%;

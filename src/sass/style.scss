@@ -14,27 +14,21 @@ button {
     outline: inherit;
 }
 
-body {
-    width: 100%;
-    height: 100%;
+html {
+    background-color: rgb(110, 110, 110);
+    width: 412px;
+    height: 914px;
+    margin: 45px auto 0;
 }
 
 .main {
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
-    max-width: 600px;
-
-    margin: auto;
-    justify-content: space-between;
 }
 
 .componentBody {
-
     flex: 1;
-    width: 100%;
-    height: 100%;
     justify-content: space-between;
+    position: relative;
 }
 
 .d-f-col {
@@ -71,14 +65,9 @@ body {
 }
 
 
-.FavCards {
-    flex: 3;
-}
-
 @import "../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
-
 @import "../Component/WeatherResult/weatherResult.scss";
 @import "../Component/SearchLocation/searchLocation.scss";
 @import "../Component/Header/header.scss";
-@import "../Component/UserLocationWeather/userLocationWeather.scss";
 @import "../Component/Footer/footer.scss";
+@import "../Component/BackgroundImg/BackgroundImg.scss"

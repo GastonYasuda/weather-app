@@ -3,6 +3,7 @@ import React, { useContext, useEffect } from 'react'
 import { Card } from 'react-bootstrap'
 import ShowFavEachCity from '../ShowFavEachCity/ShowFavEachCity';
 import { weatherContext } from '../../Context/WeatherApiContext';
+import Background from '../BackgroundImg/BackgroundImg';
 
 const WeatherResult = ({ weatherData }) => {
 
@@ -26,7 +27,7 @@ const WeatherResult = ({ weatherData }) => {
 
 
     return (
-        <>
+        <div className='cardResult d-f-col-a_center-j_center'>
             {weatherData && weatherData.weather && weatherData.weather[0] && weatherData.main && weatherData.sys &&
                 <>
                     <Card style={{ width: '18rem' }}>
@@ -60,10 +61,14 @@ const WeatherResult = ({ weatherData }) => {
 
                         </Card.Body>
                     </Card>
+
                 </>
             }
             <ShowFavEachCity favCities={favCities} />
-        </>
+
+            <Background getBackground={weatherData} />
+
+        </div>
     )
 }
 

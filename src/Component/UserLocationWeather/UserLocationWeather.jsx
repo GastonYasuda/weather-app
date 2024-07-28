@@ -6,7 +6,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 const UserLocationWeather = () => {
 
-    const { userWeather, backgroundImage } = useContext(weatherContext)
+    const { userWeather } = useContext(weatherContext)
 
     const [weatherData, setWeatherData] = useState([])
 
@@ -15,7 +15,6 @@ const UserLocationWeather = () => {
     useEffect(() => {
         if (userWeather) {
             setWeatherData(userWeather)
-            //  console.log(userWeather);
         }
     }, [userWeather])
 
@@ -23,13 +22,7 @@ const UserLocationWeather = () => {
     return (
         <>
             {userWeather && weatherData.main ?
-                <>
-                    <WeatherResult weatherData={weatherData} />
-
-                    <div className='weatherBackgroundImg'>
-                        {backgroundImage(weatherData.weather[0].main)}
-                    </div>
-                </>
+                <WeatherResult weatherData={weatherData} />
                 :
                 <div className='locationNotFound d-f-col-a_center-j_center '>
                     <Spinner animation="border" variant="primary" />

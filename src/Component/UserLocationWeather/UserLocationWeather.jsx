@@ -11,11 +11,11 @@ const UserLocationWeather = () => {
     const [weatherData, setWeatherData] = useState([])
 
 
-
     useEffect(() => {
         if (userWeather) {
             setWeatherData(userWeather)
         }
+
     }, [userWeather])
 
 

@@ -59,10 +59,19 @@ html {
 
 .d-f-col-a_center-j_center {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
+
+.d-f-row-a_center-j_center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+
 
 
 @import "../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
@@ -70,4 +79,5 @@ html {
 @import "../Component/SearchLocation/searchLocation.scss";
 @import "../Component/Header/header.scss";
 @import "../Component/Footer/footer.scss";
-@import "../Component/BackgroundImg/BackgroundImg.scss"
+@import "../Component/BackgroundImg/BackgroundImg.scss";
+@import "../Component//FavCards/FavCards.scss";

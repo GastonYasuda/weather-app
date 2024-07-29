@@ -9,7 +9,6 @@ const WeatherResult = ({ weatherData }) => {
 
     const { toggleFav, setIsFav, isFav, favCities } = useContext(weatherContext)
 
-
     // Actualizar localStorage cada vez que favCities cambie
     useEffect(() => {
 

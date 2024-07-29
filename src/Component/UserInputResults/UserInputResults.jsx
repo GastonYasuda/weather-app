@@ -1,12 +1,21 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { weatherContext } from '../../Context/WeatherApiContext'
 import WeatherResult from '../WeatherResult/WeatherResult'
+import { useParams } from 'react-router-dom'
 
 const UserInputResults = () => {
 
 
-    const { bySearch } = useContext(weatherContext)
+    const { bySearch, byInputSearch } = useContext(weatherContext)
+    const { cityId } = useParams()
 
+    useEffect(() => {
+        if (cityId) {
+            console.log(cityId);
+            byInputSearch(cityId, true)
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [cityId])
 
     return (
         <>

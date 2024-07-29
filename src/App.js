@@ -13,11 +13,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
-
+          <Route path='/:cityId' element={<Home />} />
           <Route path='*' element={<h1>Página no encontrada!!!</h1>} />
         </Routes>
       </BrowserRouter>
-    </WeatherApiContext>
+    </WeatherApiContext >
   );
 }
 

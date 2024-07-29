@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { Button } from 'react-bootstrap';
 import SearchLocation from '../SearchLocation/SearchLocation';
 import { weatherContext } from '../../Context/WeatherApiContext';
@@ -9,14 +9,6 @@ const Header = ({ setSearch }) => {
 
     const { showFav, setShowFav } = useContext(weatherContext)
 
-    const [isActive, setIsActive] = useState(false);
-
-
-
-
-    const toggleMenu = () => {
-        setIsActive(!isActive);
-    };
 
     const showFavOrNot = () => {
         if (showFav) {
@@ -43,13 +35,6 @@ const Header = ({ setSearch }) => {
                     show fav
                 </Button>
 
-
-                {/* <button className={`hamburger hamburger--collapse ${isActive ? 'is-active' : ''}`} type="button" onClick={toggleMenu}
-                >
-                    <span className="hamburger-box">
-                        <span className="hamburger-inner"></span>
-                    </span>
-                </button> */}
 
             </div>
             <SearchLocation setSearch={setSearch} />

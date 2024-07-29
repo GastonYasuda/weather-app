@@ -7,6 +7,7 @@ import { weatherContext } from '../../Context/WeatherApiContext';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import { Link } from 'react-router-dom';
 
 const SearchLocation = ({ setSearch }) => {
 
@@ -49,12 +50,10 @@ const SearchLocation = ({ setSearch }) => {
                     onKeyDown={handleKeyDown}
                 />
                 <Button variant="outline-secondary" id="button-addon2" onClick={handleClick} type='submit'>
+                    <Link to={'/'} />
                     Search
                 </Button>
             </InputGroup>
-
-
-
 
             {/* <SearchOptions Countries={Countries} />  */}
 

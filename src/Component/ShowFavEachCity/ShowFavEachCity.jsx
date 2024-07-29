@@ -20,9 +20,6 @@ const ShowFavEachCity = ({ favCities }) => {
     }, [favCities])
 
 
-
-
-
     return (
         <div className='FavCards'>
             {showFav && <FavCards />}

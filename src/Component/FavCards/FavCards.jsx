@@ -1,51 +1,65 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import Card from 'react-bootstrap/Card';
 import { weatherContext } from '../../Context/WeatherApiContext';
+import { WiCloud, WiDaySunny, WiFog, WiRain, WiSnow } from "react-icons/wi";
+import { Link } from 'react-router-dom';
 
 const FavCards = () => {
 
-    const { favArray, favCities, toggleFav } = useContext(weatherContext)
+    const { favArray, toggleFav } = useContext(weatherContext)
 
-    useEffect(() => {
-        if (favArray && favCities) {
 
-            if (favArray.length === favCities.length && favArray.length !== 0 && favArray !== null) {
-                console.log(favArray);
 
-            }
+    const weatherIcon = (weatherCondition) => {
+
+        switch (weatherCondition) {
+            case 'Rain':
+                return <WiRain size={40} />
+            case 'Snow':
+                return <WiSnow size={40} />
+            case 'Clear':
+                return <WiDaySunny size={40} />
+            case 'Clouds':
+                return <WiCloud size={40} />
+            case 'Fog':
+                return <WiFog size={40} />
+            case 'Mist':
+                return <WiFog size={40} />
+            default:
+                return <p>Unknown status</p>;
         }
-
-    }, [favArray, favCities])
+    }
 
     //favArray si dentro de esto esta en el localstorage 
 
-
-
     return (
-        <div>
+        <div className='favCardStyle'>
             {favArray.map((city, i) => (
-                < Card style={{ width: '18rem' }} key={i}>
-                    <Card.Body>
-                        <div>
-                            <h4>{city.weather[0].main}</h4>
+                <Card style={{ width: '18rem' }} key={i}>
+
+
+                    <Link to={`/${city.name}`} className='favCardStyle__container'>
+
+                        <Card.Body>
+                            <section className='d-f-row-a_center-j_center'>
+                                {weatherIcon(city.weather[0].main)}
+                                <span className='favCardStyle__container-temp'>
+                                    {Math.round(city.main.temp)}°
+                                </span>
+                            </section>
+
                             <div className="d-f-row-a-center">
                                 <h1>{city.name} - </h1>
                                 <h1> <b>{city.sys.country}</b></h1>
                             </div>
-                        </div>
 
-                        <button type='button' onClick={() => { toggleFav(city.name) }} className="favOrNotFav">
-                            <img src="/fav.svg" alt="fav buttom" style={{ width: "35px" }} />
-                        </button>
+                            <button type='button' onClick={() => { toggleFav(city.name) }} className="favOrNotFav">
+                                <img src="/fav.svg" alt="fav buttom" style={{ width: "35px" }} />
+                            </button>
 
-                        <Card.Title>
-                            <span>{Math.round(city.main.temp)}°</span>
-                        </Card.Title>
-                        <div>
-                            <span>Max: {Math.round(city.main.temp_max)}°</span>
-                            <span>Min: {Math.round(city.main.temp_min)}°</span>
-                        </div>
-                    </Card.Body>
+                        </Card.Body>
+                    </Link>
+
                 </Card>
 
             ))}

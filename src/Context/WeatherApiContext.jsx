@@ -8,7 +8,6 @@ const WeatherApiContext = ({ children }) => {
 
 
     const [userWeather, setUserWeather] = useState()
-    const [bySearch, setBySearch] = useState({})
 
 
     const API_key = '387f9ff0d731ddf4811deaddd4ae497a'
@@ -17,25 +16,29 @@ const WeatherApiContext = ({ children }) => {
     useEffect(() => {
         geoLocalization()
         setFavCities(JSON.parse(localStorage.getItem('FavCity')));
-
     }, [])
 
 
 
 
 
-
+    const [bySearch, setBySearch] = useState({})
     const [favArray, setFavArray] = useState([])
+    const [byFavs, setByFavs] = useState([])
 
     const byInputSearch = (city_name, uniqueOrArray) => {
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_key}&units=metric`) //para poner un buscador de la ciudad
             .then((response) => response.json())
             .then((json) => {
 
-                if (uniqueOrArray) {
+                if (uniqueOrArray === 'search') {
                     setBySearch(json);
+                    //    console.log(json);
+                } else if (uniqueOrArray === 'favs') {
+                    setByFavs(json)
+                    // console.log(json);
 
-                } else {
+                } else if (uniqueOrArray === 'favArray') {
                     setFavArray((prevFavCities) => [...prevFavCities, json]);
                 }
             })
@@ -134,15 +137,13 @@ const WeatherApiContext = ({ children }) => {
 
 
 
+    const [showFavResult, setShowFavResult] = useState(false)
+    const [showSearchResult, setShowSearchResult] = useState(false)
 
-    //---------------------------------------- SHOW FAVS
-
-
-    const [showFav, setShowFav] = useState(false)
 
 
     return (
-        <weatherContext.Provider value={{ mayPrimera, userWeather, byInputSearch, bySearch, setFavArray, favArray, backgroundImage, toggleFav, setIsFav, isFav, favCities, showFav, setShowFav }}>
+        <weatherContext.Provider value={{ mayPrimera, userWeather, byInputSearch, bySearch, setFavArray, favArray, backgroundImage, toggleFav, setIsFav, isFav, favCities, byFavs, showFavResult, setShowFavResult, showSearchResult, setShowSearchResult }}>
             {children}
         </weatherContext.Provider>
     )

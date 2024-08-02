@@ -4,19 +4,24 @@ import SearchLocation from '../SearchLocation/SearchLocation';
 import { weatherContext } from '../../Context/WeatherApiContext';
 
 
-const Header = ({ setSearch }) => {
+const Header = ({ showFavs, setShowFavs }) => {
 
 
-    const { showFav, setShowFav } = useContext(weatherContext)
-
+    const { setShowSearchResult, setShowFavResult } = useContext(weatherContext)
 
     const showFavOrNot = () => {
-        if (showFav) {
-            setShowFav(false)
+        if (showFavs) {
+            setShowFavs(false)
         } else {
-            setShowFav(true)
-
+            setShowFavs(true)
         }
+    }
+
+    const geoLocationHome = () => {
+        setShowSearchResult(false)
+        setShowFavResult(false)
+        console.log('myresult');
+
     }
 
 
@@ -24,7 +29,7 @@ const Header = ({ setSearch }) => {
         <div className='header d-f-col-a-center'>
             <div className=' d-f-row-j-between'>
 
-                <button onClick={() => { setSearch(false) }}>
+                <button onClick={() => { geoLocationHome() }}>
                     <div className="logo d-f-row-a-center">
                         <img src="/logoTanuki_black.png" alt="logo tanuki" />
                         <h4>WeatherRyo</h4>
@@ -37,7 +42,7 @@ const Header = ({ setSearch }) => {
 
 
             </div>
-            <SearchLocation setSearch={setSearch} />
+            <SearchLocation />
 
             {/* si searchLocation es true que me muestre solo UserInputResults y si es false UserLocationWeather */}
         </div>

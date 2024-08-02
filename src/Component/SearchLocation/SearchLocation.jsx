@@ -11,14 +11,14 @@ import { Link } from 'react-router-dom';
 
 const SearchLocation = ({ setSearch }) => {
 
-    const { byInputSearch } = useContext(weatherContext)
+    const { byInputSearch, setShowSearchResult, setShowFavResult } = useContext(weatherContext)
 
     const [inputName, setInputName] = useState('')
     const [inputResults, setInputResults] = useState([])
 
     useEffect(() => {
         if (inputResults) {
-            byInputSearch(inputResults, true)
+            byInputSearch(inputResults, 'search')
             //console.log("busco:", inputResults);
         }
     }, [inputResults])
@@ -26,15 +26,16 @@ const SearchLocation = ({ setSearch }) => {
 
     const handleClick = () => {
         setInputResults(inputName.trim())
-        setSearch(true)
+        setShowSearchResult(true)
+        setShowFavResult(false)
         setInputName('');
+        console.log("myresult que onda");
     }
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
             e.preventDefault(); // Evita el comportamiento por defecto del Enter en formularios
             handleClick();
-            // console.log("click");
         }
     };
 

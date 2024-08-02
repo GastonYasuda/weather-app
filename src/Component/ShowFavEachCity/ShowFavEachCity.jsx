@@ -13,7 +13,7 @@ const ShowFavEachCity = ({ favCities }) => {
         if (favCities) {
             setFavArray([])
             for (const city of favCities) {
-                byInputSearch(city, false)
+                byInputSearch(city, 'favArray')
             }
         }
 

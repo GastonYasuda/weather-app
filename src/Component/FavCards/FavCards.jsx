@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const FavCards = () => {
 
-    const { favArray, toggleFav } = useContext(weatherContext)
+    const { favArray, toggleFav, byInputSearch, setShowFavResult, setShowSearchResult } = useContext(weatherContext)
 
 
 
@@ -30,6 +30,12 @@ const FavCards = () => {
         }
     }
 
+    const argentina = (cityName, state) => {
+        byInputSearch(cityName, state)
+        setShowFavResult(true)
+        setShowSearchResult(false)
+    }
+
     //favArray si dentro de esto esta en el localstorage 
 
     return (
@@ -38,7 +44,7 @@ const FavCards = () => {
                 <Card style={{ width: '18rem' }} key={i}>
 
 
-                    <Link to={`/${city.name}`} className='favCardStyle__container'>
+                    <Link className='favCardStyle__container' onClick={() => { argentina(city.name, 'favs') }}>
 
                         <Card.Body>
                             <section className='d-f-row-a_center-j_center'>

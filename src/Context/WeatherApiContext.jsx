@@ -9,9 +9,14 @@ const WeatherApiContext = ({ children }) => {
 
     const API_key = '387f9ff0d731ddf4811deaddd4ae497a'
 
+    const [favCities, setFavCities] = useState([]);
+    const [isFav, setIsFav] = useState(false)
+
     useEffect(() => {
         geoLocalization()
         setFavCities(JSON.parse(localStorage.getItem('FavCity')));
+        console.log(favCities);
+
     }, [])
 
 
@@ -102,24 +107,34 @@ const WeatherApiContext = ({ children }) => {
 
     //---------------------------------------- FAVS
 
-    const [favCities, setFavCities] = useState([]);
-    const [isFav, setIsFav] = useState(false)
+
 
 
     const toggleFav = (myCity) => {
-        if (favCities.includes(myCity)) {
+        console.log(myCity);
+
+        if (favCities !== null && favCities.includes(myCity)) {
             setIsFav(true)
             removeFavCity(myCity);
 
         } else {
+            console.log('daleeee');
+
             setIsFav(false)
             addFavCity(myCity);
         }
     };
 
     const addFavCity = (myCity) => {
-        setFavCities((prevFavCities) => [...prevFavCities, myCity]);
+        setFavCities((prevFavCities) => {
+            if (!Array.isArray(prevFavCities)) {
+                // console.error('favCities no es un array:', prevFavCities);
+                return [myCity];
+            }
+            return [...prevFavCities, myCity];
+        });
     };
+
 
     const removeFavCity = (myCity) => {
         setFavCities((prevFavCities) => prevFavCities.filter(city => city !== myCity));

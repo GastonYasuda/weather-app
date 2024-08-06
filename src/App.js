@@ -5,8 +5,6 @@ import "../src/sass/style.scss"
 import WeatherApiContext from './Context/WeatherApiContext';
 
 function App() {
-  // {/* <UserInputResults /> */ }
-
 
   return (
     <WeatherApiContext>

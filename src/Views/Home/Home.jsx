@@ -10,17 +10,11 @@ import Spinner from 'react-bootstrap/Spinner';
 
 const Home = () => {
 
-
   const { userWeather, bySearch, byFavs, showFavResult, showSearchResult } = useContext(weatherContext)
-
   const [showFavs, setShowFavs] = useState(false)
-
   const [myresult, setMyResult] = useState([])
 
-  //aca traer
-
   useEffect(() => {
-
 
     if (showFavResult) {
       setMyResult(byFavs)
@@ -40,7 +34,7 @@ const Home = () => {
 
         {myresult && myresult.main ?
           <WeatherResult weatherData={myresult} /> :
-          myresult ? 'no existe' : <Spinner animation="border" />
+          myresult ? 'The requested location could not be found.' : <Spinner animation="border" />
         }
 
         {showFavs && <FavCards />}

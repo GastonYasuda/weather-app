@@ -7,11 +7,7 @@ const WeatherApiContext = ({ children }) => {
     //---------------------------------------- CALL API
 
 
-    const [userWeather, setUserWeather] = useState()
-
-
     const API_key = '387f9ff0d731ddf4811deaddd4ae497a'
-
 
     useEffect(() => {
         geoLocalization()
@@ -19,7 +15,7 @@ const WeatherApiContext = ({ children }) => {
     }, [])
 
 
-
+    //---------------------------------------- INPUT BY SEARCH
 
 
     const [bySearch, setBySearch] = useState({})
@@ -32,14 +28,14 @@ const WeatherApiContext = ({ children }) => {
             .then((json) => {
 
                 if (uniqueOrArray === 'search') {
-                    setBySearch(json);
-                    //    console.log(json);
+                    setBySearch(json)
+
                 } else if (uniqueOrArray === 'favs') {
                     setByFavs(json)
-                    // console.log(json);
 
                 } else if (uniqueOrArray === 'favArray') {
-                    setFavArray((prevFavCities) => [...prevFavCities, json]);
+                    setFavArray((prevFavCities) => [...prevFavCities, json])
+
                 }
             })
             .catch((err) => {
@@ -48,14 +44,9 @@ const WeatherApiContext = ({ children }) => {
     }
 
 
+    //---------------------------------------- ACTUAL LOCATION
 
-
-
-
-
-
-
-
+    const [userWeather, setUserWeather] = useState()
 
     const geoLocalization = () => {
         navigator.geolocation.getCurrentPosition(
@@ -77,7 +68,6 @@ const WeatherApiContext = ({ children }) => {
             }
         );
     };
-
 
 
     //---------------------------------------- BACKGROUND IMAGE
@@ -136,11 +126,8 @@ const WeatherApiContext = ({ children }) => {
     };
 
 
-
     const [showFavResult, setShowFavResult] = useState(false)
     const [showSearchResult, setShowSearchResult] = useState(false)
-
-
 
     return (
         <weatherContext.Provider value={{ mayPrimera, userWeather, byInputSearch, bySearch, setFavArray, favArray, backgroundImage, toggleFav, setIsFav, isFav, favCities, byFavs, showFavResult, setShowFavResult, showSearchResult, setShowSearchResult }}>

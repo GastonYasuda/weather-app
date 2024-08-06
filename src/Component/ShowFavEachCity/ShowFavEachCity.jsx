@@ -8,15 +8,12 @@ const ShowFavEachCity = ({ favCities }) => {
     const { byInputSearch, setFavArray, showFav } = useContext(weatherContext)
 
     useEffect(() => {
-
-
         if (favCities) {
             setFavArray([])
             for (const city of favCities) {
                 byInputSearch(city, 'favArray')
             }
         }
-
     }, [favCities])
 
 

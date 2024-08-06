@@ -9,9 +9,7 @@ const FavCards = () => {
     const { favArray, toggleFav, byInputSearch, setShowFavResult, setShowSearchResult } = useContext(weatherContext)
 
 
-
     const weatherIcon = (weatherCondition) => {
-
         switch (weatherCondition) {
             case 'Rain':
                 return <WiRain size={40} />
@@ -36,13 +34,10 @@ const FavCards = () => {
         setShowSearchResult(false)
     }
 
-    //favArray si dentro de esto esta en el localstorage 
-
     return (
         <div className='favCardStyle'>
             {favArray.map((city, i) => (
                 <Card style={{ width: '18rem' }} key={i}>
-
 
                     <Link className='favCardStyle__container' onClick={() => { argentina(city.name, 'favs') }}>
 
@@ -65,12 +60,8 @@ const FavCards = () => {
 
                         </Card.Body>
                     </Link>
-
                 </Card>
-
             ))}
-
-
         </div >
     )
 }

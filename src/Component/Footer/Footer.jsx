@@ -13,7 +13,6 @@ const Footer = () => {
                     </span>
                 </div>
 
-
                 <div className="portFolioLinks">
                     <img src="/linkedin-logo.png" alt="linkedin logo" />
                     <span>
@@ -27,7 +26,6 @@ const Footer = () => {
                         Conocé mis proyectos en   <Link to="https://gastonyasudaportfolio.netlify.app/" target="_blank">gastonyasuda.netlify </Link>
                     </span>
                 </div>
-
 
             </div>
         </section>

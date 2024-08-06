@@ -6,7 +6,6 @@ import { weatherContext } from '../../Context/WeatherApiContext';
 
 const Header = ({ showFavs, setShowFavs }) => {
 
-
     const { setShowSearchResult, setShowFavResult } = useContext(weatherContext)
 
     const showFavOrNot = () => {
@@ -20,10 +19,7 @@ const Header = ({ showFavs, setShowFavs }) => {
     const geoLocationHome = () => {
         setShowSearchResult(false)
         setShowFavResult(false)
-        console.log('myresult');
-
     }
-
 
     return (
         <div className='header d-f-col-a-center'>
@@ -37,15 +33,15 @@ const Header = ({ showFavs, setShowFavs }) => {
                 </button>
 
                 <Button className='showFavButton' type='button' onClick={showFavOrNot}>
-                    show fav
+                    Show Fav
                 </Button>
 
-
             </div>
+
             <SearchLocation />
 
-            {/* si searchLocation es true que me muestre solo UserInputResults y si es false UserLocationWeather */}
         </div>
+
 
     )
 }

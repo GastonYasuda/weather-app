@@ -23,6 +23,8 @@ const FavCards = () => {
                 return <WiFog size={40} />
             case 'Mist':
                 return <WiFog size={40} />
+            case 'Drizzle':
+                return <WiRain size={40} />
             default:
                 return <p>Unknown status</p>;
         }

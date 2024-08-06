@@ -2,9 +2,11 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Header from '../../Component/Header/Header'
 import Footer from '../../Component/Footer/Footer'
-import UserInputResults from '../../Component/UserInputResults/UserInputResults'
 import { weatherContext } from '../../Context/WeatherApiContext'
 import FavCards from '../../Component/FavCards/FavCards'
+import WeatherResult from '../../Component/WeatherResult/WeatherResult'
+import Spinner from 'react-bootstrap/Spinner';
+
 
 const Home = () => {
 
@@ -12,8 +14,6 @@ const Home = () => {
   const { userWeather, bySearch, byFavs, showFavResult, showSearchResult } = useContext(weatherContext)
 
   const [showFavs, setShowFavs] = useState(false)
-
-
 
   const [myresult, setMyResult] = useState([])
 
@@ -30,20 +30,20 @@ const Home = () => {
       setMyResult(userWeather)
     }
 
-  }, [bySearch, userWeather, byFavs, showFavResult, showSearchResult])
+  }, [bySearch, userWeather, byFavs, showFavResult, showSearchResult, myresult])
 
 
-
-
-  //si es searchEs true me muestra
   return (
     <div className='main d-f-col'>
       <div className="componentBody d-f-col-a-center">
         <Header showFavs={showFavs} setShowFavs={setShowFavs} />
 
-        <UserInputResults myresult={myresult} />
+        {myresult && myresult.main ?
+          <WeatherResult weatherData={myresult} /> :
+          myresult ? 'no existe' : <Spinner animation="border" />
+        }
 
-        {showFavs ? <FavCards /> : 'no estoy'}
+        {showFavs && <FavCards />}
 
         <Footer />
       </div>

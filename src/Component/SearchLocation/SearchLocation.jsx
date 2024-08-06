@@ -50,7 +50,7 @@ const SearchLocation = ({ setSearch }) => {
                     onChange={e => setInputName(e.target.value)}
                     onKeyDown={handleKeyDown}
                 />
-                <Button variant="outline-secondary" id="button-addon2" onClick={handleClick} type='submit'>
+                <Button className='showFavButton' variant="outline-secondary" id="button-addon2" onClick={handleClick} type='submit'>
                     <Link to={'/'} />
                     Search
                 </Button>

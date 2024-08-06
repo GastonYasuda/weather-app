@@ -18,4 +18,15 @@
         text-decoration: none;
         color: black;
     }
+
+    .showFavButton {
+        background-color: #95959564;
+        border: none;
+        color: #ffffffa6;
+    }
+
+    .showFavButton:hover {
+        background-color: #959595;
+        transition: all 0.7s;
+    }
 }

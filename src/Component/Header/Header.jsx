@@ -36,7 +36,7 @@ const Header = ({ showFavs, setShowFavs }) => {
                     </div>
                 </button>
 
-                <Button type='button' onClick={showFavOrNot}>
+                <Button className='showFavButton' type='button' onClick={showFavOrNot}>
                     show fav
                 </Button>
 

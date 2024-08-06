@@ -15,8 +15,7 @@ const WeatherApiContext = ({ children }) => {
     useEffect(() => {
         geoLocalization()
         setFavCities(JSON.parse(localStorage.getItem('FavCity')));
-        console.log(favCities);
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
@@ -91,6 +90,8 @@ const WeatherApiContext = ({ children }) => {
                 return <img className='weatherImg' src="/fogMist.jpg" alt="fog background" />
             case 'Mist':
                 return <img className='weatherImg' src="/fogMist.jpg" alt="mist background" />
+            case 'Drizzle':
+                return <img className='weatherImg' src="/drizzle.jpg" alt="drizzle background" />
             default:
                 return <p>Unknown status</p>;
         }

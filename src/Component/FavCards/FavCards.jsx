@@ -30,7 +30,7 @@ const FavCards = () => {
         }
     }
 
-    const argentina = (cityName, state) => {
+    const saveFavCity = (cityName, state) => {
         byInputSearch(cityName, state)
         setShowFavResult(true)
         setShowSearchResult(false)
@@ -41,11 +41,12 @@ const FavCards = () => {
             {favArray.map((city, i) => (
                 <Card style={{ width: '18rem' }} key={i}>
 
-                    <Link className='favCardStyle__container' onClick={() => { argentina(city.name, 'favs') }}>
+                    <Link className='favCardStyle__container' onClick={() => { saveFavCity(city.name, 'favs') }}>
 
                         <Card.Body>
                             <section className='d-f-row-a_center-j_center'>
                                 {weatherIcon(city.weather[0].main)}
+                                <p>{city.weather[0].main}</p>
                                 <span className='favCardStyle__container-temp'>
                                     {Math.round(city.main.temp)}°
                                 </span>
